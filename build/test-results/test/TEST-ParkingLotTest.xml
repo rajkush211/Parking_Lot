@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ParkingLotTest" tests="13" skipped="0" failures="0" errors="0" timestamp="2020-07-27T18:08:06" hostname="Ubuntu-RajKush" time="0.005">
+  <properties/>
+  <testcase name="givenAVehicleToAttendant_WhenUnParked_thenCheckIfParked_ShouldReturnTrue" classname="ParkingLotTest" time="0.001"/>
+  <testcase name="givenAVehicles_WhenParkingLotIsFull_ShouldThrowException" classname="ParkingLotTest" time="0.0"/>
+  <testcase name="givenAVehicle_WhenParked_thenCheckPosition_ShouldReturnPosition" classname="ParkingLotTest" time="0.001"/>
+  <testcase name="givenAVehicleByHandicapped_WhenParked_thenParkInNearestFreeSpace_ShouldReturnPosition" classname="ParkingLotTest" time="0.0"/>
+  <testcase name="givenAVehicle_WhenParked_thenCheckTimeWhenParked_ShouldReturnParkedTime" classname="ParkingLotTest" time="0.0"/>
+  <testcase name="givenAVehicles_WhenParkingLotIsFull_ShouldInformToOwner" classname="ParkingLotTest" time="0.0"/>
+  <testcase name="givenAVehicle_WhenParked_thenCheckIfParked_ShouldReturnTrue" classname="ParkingLotTest" time="0.001"/>
+  <testcase name="givenAVehicle_WhenUnParked_thenCheckIfUnparked_ShouldReturnTrue" classname="ParkingLotTest" time="0.0"/>
+  <testcase name="givenANullVehicle_WhenUnParked_ShouldThrowException" classname="ParkingLotTest" time="0.0"/>
+  <testcase name="givenAVehicle_WhenAlreadyParkedAndCheckIfUnPark_ShouldReturnFalse" classname="ParkingLotTest" time="0.0"/>
+  <testcase name="givenAVehicleToAttendant_WhenParked_thenCheckIfParked_ShouldReturnTrue" classname="ParkingLotTest" time="0.001"/>
+  <testcase name="givenAVehicles_WhenParkingLotHasSpaceAgain_ShouldInformToParkingLotOwner" classname="ParkingLotTest" time="0.0"/>
+  <testcase name="givenAVehicles_WhenParkingLotIsFull_ShouldInformToAllObservers" classname="ParkingLotTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
