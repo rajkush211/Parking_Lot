@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1454271d-95f5-4474-b378-175611b35e89" name="Default Changelist" comment="" />
+    <list default="true" id="1454271d-95f5-4474-b378-175611b35e89" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,7 +33,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1evvSNXJmDGPsuufxuUjR9h3HUV" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -39,11 +45,13 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RunManager" selected="Gradle.ParkingLotTest">
     <configuration name="ParkingLotTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -66,12 +74,12 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="ParkingLotTest.givenANullVehicle_WhenUnParked_ShouldThrowException" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ParkingLotTest.givenAVehicleByVehicleType_WhenLarge_ThenParkInMaxFreeLargeSpace_ShouldReturnSlotNumber" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;ParkingLotTest.givenANullVehicle_WhenUnParked_ShouldThrowException&quot;" />
+        <option name="scriptParameters" value="--tests &quot;ParkingLotTest.givenAVehicleByVehicleType_WhenLarge_ThenParkInMaxFreeLargeSpace_ShouldReturnSlotNumber&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -86,12 +94,32 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="ParkingLotTest.givenAVehicle_WhenAlreadyParkedAndCheckIfUnPark_ShouldReturnFalse" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ParkingLotTest.givenAVehicle_WhenParked_ShouldReturnTrue" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;ParkingLotTest.givenAVehicle_WhenAlreadyParkedAndCheckIfUnPark_ShouldReturnFalse&quot;" />
+        <option name="scriptParameters" value="--tests &quot;ParkingLotTest.givenAVehicle_WhenParked_ShouldReturnTrue&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":cleanTest" />
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="ParkingLotTest.givenAVehicle_WhenParked_thenCheckIfParked_ShouldReturnTrue" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;ParkingLotTest.givenAVehicle_WhenParked_thenCheckIfParked_ShouldReturnTrue&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -126,33 +154,13 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="ParkingLotTest.givenAVehicles_WhenParkingLotIsFull_ShouldThrowException" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;ParkingLotTest.givenAVehicles_WhenParkingLotIsFull_ShouldThrowException&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":cleanTest" />
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.ParkingLotTest" />
+        <item itemvalue="Gradle.ParkingLotTest.givenAVehicle_WhenParked_ShouldReturnTrue" />
         <item itemvalue="Gradle.ParkingLotTest.givenAVehicles_WhenParkingLotIsFull_ShouldInformToOwner" />
-        <item itemvalue="Gradle.ParkingLotTest.givenAVehicles_WhenParkingLotIsFull_ShouldThrowException" />
-        <item itemvalue="Gradle.ParkingLotTest.givenAVehicle_WhenAlreadyParkedAndCheckIfUnPark_ShouldReturnFalse" />
-        <item itemvalue="Gradle.ParkingLotTest.givenANullVehicle_WhenUnParked_ShouldThrowException" />
+        <item itemvalue="Gradle.ParkingLotTest.givenAVehicleByVehicleType_WhenLarge_ThenParkInMaxFreeLargeSpace_ShouldReturnSlotNumber" />
+        <item itemvalue="Gradle.ParkingLotTest.givenAVehicle_WhenParked_thenCheckIfParked_ShouldReturnTrue" />
       </list>
     </recent_temporary>
   </component>
@@ -180,6 +188,7 @@
       <updated>1595214879755</updated>
       <workItem from="1595214883334" duration="26234000" />
       <workItem from="1595395329971" duration="774000" />
+      <workItem from="1595873088719" duration="17957000" />
     </task>
     <servers />
   </component>
@@ -191,46 +200,54 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="588" y="214" width="847" height="677" key="#Project_Structure/67.27.1853.1053@67.27.1853.1053" timestamp="1595219178845" />
-    <state x="801" y="271" width="374" height="562" key="#com.intellij.ide.util.MemberChooser" timestamp="1595241648335">
+    <state x="801" y="271" width="374" height="562" key="#com.intellij.ide.util.MemberChooser" timestamp="1595934525169">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="801" y="271" width="374" height="562" key="#com.intellij.ide.util.MemberChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1595241648335" />
-    <state width="1807" height="158" key="GridCell.Tab.0.bottom" timestamp="1595395308467">
+    <state x="801" y="271" width="374" height="562" key="#com.intellij.ide.util.MemberChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1595934525169" />
+    <state x="726" y="301" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1595918633184">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="158" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1595395308467" />
-    <state width="1807" height="158" key="GridCell.Tab.0.center" timestamp="1595395308466">
+    <state x="726" y="301" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1595918633184" />
+    <state width="1807" height="204" key="GridCell.Tab.0.bottom" timestamp="1595944134327">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="158" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1595395308466" />
-    <state width="1807" height="158" key="GridCell.Tab.0.left" timestamp="1595395308466">
+    <state width="1807" height="204" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1595944134327" />
+    <state width="1807" height="204" key="GridCell.Tab.0.center" timestamp="1595944134326">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="158" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1595395308466" />
-    <state width="1807" height="158" key="GridCell.Tab.0.right" timestamp="1595395308467">
+    <state width="1807" height="204" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1595944134326" />
+    <state width="1807" height="204" key="GridCell.Tab.0.left" timestamp="1595944134323">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="158" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1595395308467" />
-    <state width="1807" height="158" key="GridCell.Tab.1.bottom" timestamp="1595395308468">
+    <state width="1807" height="204" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1595944134323" />
+    <state width="1807" height="204" key="GridCell.Tab.0.right" timestamp="1595944134326">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="158" key="GridCell.Tab.1.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1595395308468" />
-    <state width="1807" height="158" key="GridCell.Tab.1.center" timestamp="1595395308468">
+    <state width="1807" height="204" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1595944134326" />
+    <state width="1807" height="76" key="GridCell.Tab.1.bottom" timestamp="1595943788895">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="158" key="GridCell.Tab.1.center/67.27.1853.1053@67.27.1853.1053" timestamp="1595395308468" />
-    <state width="1807" height="158" key="GridCell.Tab.1.left" timestamp="1595395308467">
+    <state width="1807" height="76" key="GridCell.Tab.1.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1595943788895" />
+    <state width="1807" height="76" key="GridCell.Tab.1.center" timestamp="1595943788895">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="158" key="GridCell.Tab.1.left/67.27.1853.1053@67.27.1853.1053" timestamp="1595395308467" />
-    <state width="1807" height="158" key="GridCell.Tab.1.right" timestamp="1595395308468">
+    <state width="1807" height="76" key="GridCell.Tab.1.center/67.27.1853.1053@67.27.1853.1053" timestamp="1595943788895" />
+    <state width="1807" height="76" key="GridCell.Tab.1.left" timestamp="1595943788894">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="158" key="GridCell.Tab.1.right/67.27.1853.1053@67.27.1853.1053" timestamp="1595395308468" />
-    <state x="167" y="125" width="1653" height="855" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1595322260836">
+    <state width="1807" height="76" key="GridCell.Tab.1.left/67.27.1853.1053@67.27.1853.1053" timestamp="1595943788894" />
+    <state width="1807" height="76" key="GridCell.Tab.1.right" timestamp="1595943788895">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="167" y="125" width="1653" height="855" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1595322260836" />
+    <state width="1807" height="76" key="GridCell.Tab.1.right/67.27.1853.1053@67.27.1853.1053" timestamp="1595943788895" />
+    <state x="482" y="187" key="SettingsEditor" timestamp="1595965575287">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="482" y="187" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1595965575287" />
+    <state x="167" y="125" width="1653" height="855" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1595917693367">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="167" y="125" width="1653" height="855" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1595917693367" />
     <state x="649" y="380" key="com.intellij.ide.util.TipDialog" timestamp="1595395330863">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -245,18 +262,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/ParkingLotTest.java</url>
-          <line>119</line>
+          <line>128</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/ParkingLotTest.java</url>
-          <line>25</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/ParkingLotTest.java</url>
-          <line>81</line>
-          <option name="timeStamp" value="14" />
+          <line>196</line>
+          <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

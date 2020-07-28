@@ -8,12 +8,17 @@ import com.bridgelabz.parkinglot.observer.Observer;
 import java.util.*;
 
 import static com.bridgelabz.parkinglot.model.PersonType.HANDICAPPED;
-import static com.bridgelabz.parkinglot.model.PersonType.NORMAL;
+import static com.bridgelabz.parkinglot.model.Vehicle.VehicleType.LARGE;
 
 public class ParkingLotSystem {
 
     private static HashMap<Integer, Vehicle> parkingLot1;
     private static HashMap<Integer, Vehicle> parkingLot2;
+    private boolean isParkingLotFull = false;
+    private int parkingLotSize = 6;
+    private int numOfVacantParking = 6;
+    private List<Observer> observerList = new ArrayList<>();
+    private Map activeParkingLot = parkingLot2;
 
     public ParkingLotSystem() {
         parkingLot1 = new HashMap<>();
@@ -27,10 +32,6 @@ public class ParkingLotSystem {
         parkingLot2.put(6, null);
     }
 
-    private boolean isParkingLotFull = false;
-    private int parkingLotSize = 6;
-    private List<com.bridgelabz.parkinglot.observer.Observer> observerList = new ArrayList<>();
-
     public void addObserver(com.bridgelabz.parkinglot.observer.Observer observer) {
         this.observerList.add(observer);
     }
@@ -42,66 +43,118 @@ public class ParkingLotSystem {
         }
     }
 
-    public int numOfVacantParking() {
+    public int numOfVacantParkingInParkingLot(Map parkingLot) {
         int numOfParkingAvailable = 0;
-        Iterator<Map.Entry<Integer, Vehicle>> iterator1 = parkingLot1.entrySet().iterator();
+        Iterator<Map.Entry<Integer, Vehicle>> iterator1 = parkingLot.entrySet().iterator();
         while (iterator1.hasNext()) {
             if (iterator1.next().getValue() == null) {
-                numOfParkingAvailable++;
-            }
-        }
-        Iterator<Map.Entry<Integer, Vehicle>> iterator2 = parkingLot2.entrySet().iterator();
-        while (iterator2.hasNext()) {
-            if (iterator2.next().getValue() == null) {
                 numOfParkingAvailable++;
             }
         }
         return numOfParkingAvailable;
     }
 
-    public void park(Vehicle vehicle, PersonType personType) throws ParkingLotSystemException {
-        int availableSpace = numOfVacantParking();
-        if (availableSpace > 0 && availableSpace <= parkingLotSize) {
-            if (personType.equals(NORMAL)) {
-                for (int index : parkingLot2.keySet()) {
-                    if (parkingLot2.get(index) == null) {
-                        parkingLot2.put(index, vehicle);
-                        break;
-                    }
-                }
-                if (!parkingLot2.containsValue(vehicle)) {
-                    for (int index : parkingLot1.keySet()) {
-                        if (parkingLot1.get(index) == null) {
-                            parkingLot1.put(index, vehicle);
-                            break;
-                        }
-                    }
-                }
-            } else if (personType.equals(HANDICAPPED)) {
-                for (int index : parkingLot1.keySet()) {
-                    if (parkingLot1.get(index) == null) {
-                        parkingLot1.put(index, vehicle);
-                        break;
-                    }
-                }
-                if (!parkingLot1.containsValue(vehicle)) {
-                    for (int index : parkingLot2.keySet()) {
-                        if (parkingLot2.get(index) == null) {
-                            parkingLot2.put(index, vehicle);
-                            break;
-                        }
-                    }
-                }
+    public Map parkingLotWithHighestNumOfFreeSpace() {
+        int numOfParkingAvailableIn1 = 0;
+        int numOfParkingAvailableIn2 = 0;
+        Iterator<Map.Entry<Integer, Vehicle>> iterator1 = parkingLot1.entrySet().iterator();
+        while (iterator1.hasNext()) {
+            if (iterator1.next().getValue() == null) {
+                numOfParkingAvailableIn1++;
             }
-        } else if(numOfVacantParking() == 0)
-            throw new ParkingLotSystemException(ParkingLotSystemException.ExceptionType.PARKING_LOT_IS_FULL, "Parking Lot Is Full");
-
-        if (numOfVacantParking() == 0)
-            setStatus(true);
-        else
-            setStatus(false);
+        }
+        Iterator<Map.Entry<Integer, Vehicle>> iterator2 = parkingLot2.entrySet().iterator();
+        while (iterator2.hasNext()) {
+            if (iterator2.next().getValue() == null) {
+                numOfParkingAvailableIn2++;
+            }
+        }
+        if (numOfParkingAvailableIn1 >= numOfParkingAvailableIn2)
+            return parkingLot1;
+        else return parkingLot2;
     }
 
+    private void activeParkingLot() {
+        if (activeParkingLot == parkingLot1)
+            activeParkingLot = parkingLot2;
+        else activeParkingLot = parkingLot1;
+    }
+
+    public void park(Vehicle vehicle, PersonType personType) throws ParkingLotSystemException {
+        activeParkingLot();
+//        if (numOfVacantParking > 0)
+            if (personType.equals(HANDICAPPED)) {
+                handicappedPark(vehicle);
+                return;
+            } else if (vehicle.getVehicleType().equals(LARGE)) {
+                largeVehiclePark(vehicle);
+                return;
+            } else {
+                evenlyVehiclePark(vehicle);
+                return;
+            }
+//         if (numOfVacantParking == 0) {
+//            setStatus(true);
+//            throw new ParkingLotSystemException(ParkingLotSystemException.ExceptionType.PARKING_LOT_IS_FULL, "Parking Lot Is Full");
+//        } else setStatus(false);
+    }
+
+    private void handicappedPark(Vehicle vehicle) throws ParkingLotSystemException {
+        for (int index : parkingLot1.keySet()) {
+            if (parkingLot1.get(index) == null) {
+                parkingLot1.put(index, vehicle);
+                numOfVacantParking--;
+                break;
+            }
+        }
+        if (!parkingLot1.containsValue(vehicle)) {
+            for (int index : parkingLot2.keySet()) {
+                if (parkingLot2.get(index) == null) {
+                    parkingLot2.put(index, vehicle);
+                    numOfVacantParking--;
+                    break;
+                }
+            }
+        }
+        if (numOfVacantParking == 0)
+            setStatus(true);
+//        throw new ParkingLotSystemException(ParkingLotSystemException.ExceptionType.PARKING_LOT_IS_FULL, "Parking Lot Is Full");
+    }
+
+    private void largeVehiclePark(Vehicle vehicle) throws ParkingLotSystemException {
+        Map parkingLotWithHighestNumOfFreeSpace = parkingLotWithHighestNumOfFreeSpace();
+        for (Object index : parkingLotWithHighestNumOfFreeSpace.keySet()) {
+            if (parkingLotWithHighestNumOfFreeSpace.get(index) == null) {
+                parkingLotWithHighestNumOfFreeSpace.put(index, vehicle);
+                numOfVacantParking--;
+                break;
+            }
+        }
+        if (numOfVacantParking == 0)
+            setStatus(true);
+    }
+
+    private void evenlyVehiclePark(Vehicle vehicle) throws ParkingLotSystemException {
+        if (numOfVacantParkingInParkingLot(activeParkingLot) > 0 && activeParkingLot == parkingLot1) {
+            for (int index : parkingLot1.keySet()) {
+                if (parkingLot1.get(index) == null) {
+                    parkingLot1.put(index, vehicle);
+                    numOfVacantParking--;
+                    break;
+                }
+            }
+        } else if (numOfVacantParkingInParkingLot(activeParkingLot) > 0 && activeParkingLot == parkingLot2) {
+            for (int index : parkingLot2.keySet()) {
+                if (parkingLot2.get(index) == null) {
+                    parkingLot2.put(index, vehicle);
+                    numOfVacantParking--;
+                    break;
+                }
+            }
+        }
+        if (numOfVacantParking == 0)
+            setStatus(true);
+    }
 
     public void unPark(Vehicle vehicle) throws ParkingLotSystemException {
         if (vehicle == null || (!parkingLot1.containsValue(vehicle) && !parkingLot2.containsValue(vehicle)))
@@ -111,6 +164,7 @@ public class ParkingLotSystem {
                 for (int index : parkingLot1.keySet()) {
                     if (parkingLot1.get(index) == vehicle) {
                         parkingLot1.put(index, null);
+                        numOfVacantParking++;
                         break;
                     }
                 }
@@ -118,13 +172,13 @@ public class ParkingLotSystem {
                 for (int index : parkingLot2.keySet()) {
                     if (parkingLot2.get(index) == vehicle) {
                         parkingLot2.put(index, null);
+                        numOfVacantParking++;
                         break;
                     }
-
                 }
             }
         }
-        if (numOfVacantParking() > 0)
+        if (numOfVacantParking > 0)
             setStatus(false);
     }
 
